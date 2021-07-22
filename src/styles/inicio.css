@@ -1,0 +1,24 @@
+.imagen-fondo-inicio{
+    background-image: url("../images/logo.svg");
+    background-size: cover;
+    height: 400px;
+}
+
+.separa-boton{
+    margin-right: 20px;
+}
+
+.ant-card-cover{
+    height: 150px;
+    margin-top: 0px !important;
+}
+
+.ant-card-bordered{
+    border: none;
+}
+
+.site-card-border-less-wrapper {
+    padding: 30px;
+    background: #ececec;
+}
+

@@ -1,0 +1,31 @@
+
+@import '~antd/dist/antd.css';
+
+.header{
+  background-color: #FFF;
+}
+.header2{
+  background-color: #006989;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+}
+
+.colorBase{
+  background: #A3BAC3;
+}
+
+.colorBaseA{
+  background: #006989;
+}
+
+
+.colorBase{
+  background: #A3BAC3;
+}
+
+.colorBaseB{
+  background: #A3BAC3;
+}
+

@@ -1,0 +1,43 @@
+.fondo-cuenta{
+    background-image: url("../images/logo.svg") !important;
+    background-size: cover;
+}
+.ant-card-cover{
+    background-color:transparent;
+}
+.cuadro-grande{
+    padding-top: 5px;
+    height: auto;
+    width: 70%;
+    background-color: #A3BAC3;
+
+}
+.form-User{
+    padding-top: 15px;
+}
+.cuadro-interno{
+    height: auto;
+    width: 80%;
+    background-color:transparent;
+}
+.modalLink{
+    margin-top: 15px;
+    text-align: right;
+}
+.conteiner{
+    align-content: center;
+}
+.avatar-b{
+    display: flex;
+    flex-wrap:wrap;
+}
+.avatar-b label{
+
+    height: 110px;
+    background-color: transparent;
+    border: none;
+    padding: 5px;
+}
+.avatar-b label.ant-radio-button-wrapper-checked {
+    background-color: #006989 !important;
+}
