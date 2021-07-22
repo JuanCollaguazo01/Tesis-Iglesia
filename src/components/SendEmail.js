@@ -2,7 +2,7 @@ import React  from 'react';
 import {Button, Card, Col, Form, Input, Row, message} from "antd";
 import Divider from "antd/es/divider";
 import emailjs from 'emailjs-com';
-import ImgDirec from "../images/ImgDirec.jpg";
+import ImgDirec from "../images/logo.svg";
 
 const SendEmail =()=>{
 
@@ -30,7 +30,7 @@ const SendEmail =()=>{
 
 
     return(
-      <>
+      <div>
 
           {/*//Contactanos*/}
 
@@ -91,7 +91,7 @@ const SendEmail =()=>{
                   </Card>
               </div>
           </div>
-      </>
+      </div>
     )
 
 }

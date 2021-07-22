@@ -2,12 +2,15 @@ import React from 'react';
 import { Button, PageHeader } from 'antd';
 import { Link} from "react-router-dom";
 
+import './../styles/Toolbar.css';
+import DrawerToggleButton from './DrawerToggleButton';
+
 
 const Header = () => {
 
     return (
 
-
+    <header className="header">
         <div className='header'>
             <PageHeader
                 title='Iglesia Parroquial Santa Clara de San Millán'
@@ -30,6 +33,24 @@ const Header = () => {
 
         </div>
 
+        <div>
+            <nav className="toolbar__navigation">
+                <div className="toolbar_toggle-button">
+                    <DrawerToggleButton />
+                    
+                </div>
+                <div className="toolbar__logo"><a href="/">The logo</a></div>
+                <div className="spacer"></div>
+                <div className="toolbar_navigation-items">
+                    <ul>
+                        <li><a href="/">Productos</a></li>
+                        <li><a href="/">User</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+
+        </header>
     );
 
 
