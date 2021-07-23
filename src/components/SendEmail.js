@@ -2,7 +2,7 @@ import React  from 'react';
 import {Button, Card, Col, Form, Input, Row, message} from "antd";
 import Divider from "antd/es/divider";
 import emailjs from 'emailjs-com';
-import ImgDirec from "../images/ImgDirec.jpg";
+import ImgDirec from "../images/logo.svg";
 
 const SendEmail =()=>{
 
@@ -30,7 +30,7 @@ const SendEmail =()=>{
 
 
     return(
-      <>
+      <div>
 
           {/*//Contactanos*/}
 
@@ -46,7 +46,7 @@ const SendEmail =()=>{
                           <Row gutter={16} align="center">
                               <Col xs={20} sm={20} md={10} lg={10}  span={8}>
                                   <a href="https://www.google.com/maps/place/Iglesia+Cat%C3%B3lica+San+Ignacio+de+Loyola+-+Solanda/@-0.2682568,-78.542168,17z/data=!4m5!3m4!1s0x91d598e901b455f7:0xed4e19d0ae826a4e!8m2!3d-0.2682568!4d-78.5399793"
-                                   target="_blank">
+                                   >
                                       <img
                                           style={{ width: '100%', height: '90%' }}
                                           alt="Imagen de la iglesia, y enlace a la dirección"
@@ -91,7 +91,7 @@ const SendEmail =()=>{
                   </Card>
               </div>
           </div>
-      </>
+      </div>
     )
 
 }

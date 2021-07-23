@@ -7,7 +7,7 @@ const Header = () => {
 
     return (
 
-
+    <header className="header">
         <div className='header'>
             <PageHeader
                 title='Iglesia Parroquial Santa Clara de San Millán'
@@ -30,6 +30,7 @@ const Header = () => {
 
         </div>
 
+        </header>
     );
 
 
