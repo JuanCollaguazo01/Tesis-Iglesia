@@ -2,7 +2,7 @@ import React  from 'react';
 import {Button, Card, Col, Form, Input, Row, message} from "antd";
 import Divider from "antd/es/divider";
 import emailjs from 'emailjs-com';
-import ImgDirec from "../images/logo.svg";
+import ImgDirec from "../images/googleMaps.PNG";
 
 const SendEmail =()=>{
 
@@ -15,7 +15,7 @@ const SendEmail =()=>{
 
         console.log("datos ", email + title + info );
 
-         emailjs.send("ProyectoIglesia", "template_0ndjb14", contact, "user_Ap5vRMMTcHBWzWwLe5KWm"  )
+         emailjs.send("service_pq3tvs8", "template_99mm9bu", contact, "user_dP2gJTXD1UptWZ59YXc8o"  )
              .then((response) => {
                  console.log("SUCCESS!", response.status, response.text);
                  message.success('Se ha enviado su correo con éxito. ');
@@ -45,7 +45,7 @@ const SendEmail =()=>{
                           <Divider />
                           <Row gutter={16} align="center">
                               <Col xs={20} sm={20} md={10} lg={10}  span={8}>
-                                  <a href="https://www.google.com/maps/place/Iglesia+Cat%C3%B3lica+San+Ignacio+de+Loyola+-+Solanda/@-0.2682568,-78.542168,17z/data=!4m5!3m4!1s0x91d598e901b455f7:0xed4e19d0ae826a4e!8m2!3d-0.2682568!4d-78.5399793"
+                                  <a href="https://www.google.com.ec/maps/place/Iglesia+de+Santa+Clara+de+San+Millan/@-0.2008627,-78.5022018,16.04z/data=!4m5!3m4!1s0x91d59a6a84509707:0x89be520ae2a35ade!8m2!3d-0.1996867!4d-78.4974002?hl=es-419"
                                    >
                                       <img
                                           style={{ width: '100%', height: '90%' }}
@@ -57,30 +57,37 @@ const SendEmail =()=>{
                               <Col xs={20} sm={20} md={12} lg={12}  span={8}>
 
                                   <Form name="sendEmailInfo"
+                                        labelCol={{ span: 6 }}
+                                        wrapperCol={{ span: 24 }}
+                                        initialValues={{ remember: true }}
                                         onFinish={ handleSubmit }>
-
+                                    
+                                    
                                       <Form.Item name={['user', 'email']} label="Email"
                                                  rules={[{
                                                      type: 'email',
                                                      required: true,
                                                      message: "Ingrese un correo electrónico" }]}>
-                                          <Input placeholder="Ingrese su correo electrónico "/>
+                                          <Input type="email" placeholder="Ingrese su correo electrónico " name="email"/>
                                       </Form.Item>
+                                      
                                       <Form.Item name={['user', 'subject']} label="Asunto"
                                                  rules={[{
                                                      required: true,
                                                      message: "Ingrese el asunto del correo"}]}>
-                                          <Input placeholder="Ingrese el asunto "/>
+                                          <Input  placeholder="Ingrese el asunto " name="subject"/>
                                       </Form.Item>
-                                      <Form.Item name={['user', 'message']} label="¿Cómo podemos ayudarle?"
+
+                                      <Form.Item name={['user', 'message']} label="Mensaje"
                                                  rules={[{
                                                      required: true,
                                                      message: "Ingrese el mensaje o petición que tenga"}]}>
 
-                                          <Input.TextArea placeholder="Ingrese su mensaje "/>
+                                          <Input.TextArea placeholder="Ingrese su mensaje " name="message"/>
                                       </Form.Item>
+                                    
                                       <Form.Item >
-                                          <Button type="primary" htmlType="submit">
+                                          <Button type="primary" htmlType="submit"  shape="round">
                                               Enviar
                                           </Button>
                                       </Form.Item>

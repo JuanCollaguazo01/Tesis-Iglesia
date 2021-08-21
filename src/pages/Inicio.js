@@ -13,6 +13,7 @@ import Meta from "antd/es/card/Meta";
 import Divider from "antd/es/divider";
 import {Link} from "react-router-dom";
 import SendEmail from "../components/SendEmail";
+import Foot from "../components/Foot";
 
 
 const Inicio = () => {
@@ -33,7 +34,7 @@ const Inicio = () => {
                                     <p>  Ahora puede reservar un asiento para la ceremonia de la Eucaristia de la Iglesia Parroquial Santa Clara de San Millán,
                                         desde la comodidad de su hogar.  </p>
                                     <Button className="separa-boton" type="primary" shape="round"  >
-                                        <Link to="/RegisterSeat">Registrar Asiento</Link>
+                                        <Link to="/login">Registrar Asiento</Link>
                                     </Button>
                                 </div>
                             </Card>
@@ -185,6 +186,7 @@ const Inicio = () => {
             </div>
 
             <SendEmail />
+            <Foot />
         </div>
     )
 

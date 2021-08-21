@@ -1,0 +1,70 @@
+@import '~antd/dist/antd.css';
+
+.fondo-foros {
+    padding: 30px;
+    background-image: url("../images/logo.svg");
+    background-size: cover;
+    height: auto;
+}
+
+.tam-titu{
+    font-size: 50px;
+    font-weight: 500;
+    margin-bottom: 15px;
+}
+
+.cuadro-datos{
+    height: auto;
+    width: 40%;
+    margin: 30px 0px 30px 10%;
+}
+
+.tam-imagen-dato-perfil{
+    height: 100%;
+    width: 60%;
+    border-radius: 50%;
+}
+
+.tam-titu2{
+    font-size: 20px;
+    font-weight: 500;
+    margin-bottom: 15px;
+}
+
+.tam-buscador{
+    width: 40%;
+    margin-bottom: 45px;
+}
+
+.div-datos-titulos {
+    background-color: white;
+    height: auto;
+    width: 100%;
+    padding: 3px 0px;
+    margin: 5px 0px;
+}
+
+.div-datos-num{
+    padding: 3px 0px;
+    margin: 5px 0px;
+}
+
+.tamanio-cuadro{
+    height: auto;
+    width: 80%;
+    margin: 40px 0px;
+}
+
+.internal-box-size{
+    height: auto;
+    width: 100%;
+    padding-left: 5px;
+}
+
+
+.ant-comment-avatar img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+

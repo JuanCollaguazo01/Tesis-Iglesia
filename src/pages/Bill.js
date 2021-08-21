@@ -2,7 +2,7 @@ import React from 'react';
 import { Card} from "antd";
 import '../styles/bill.css';
 import Foot from "../components/Foot";
-import userData from "./../components/UserData";
+import FormBill from "./FormBill";
 
 const Bill = () => {
 
@@ -15,7 +15,7 @@ const Bill = () => {
                         <p>
                             Ingrese sus datos para crear una cuenta
                         </p>
-                        <userData/>
+                        <FormBill/>
                     </Card>
                 </Card>
             </div>

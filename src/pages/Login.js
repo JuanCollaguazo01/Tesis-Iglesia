@@ -12,6 +12,7 @@ const Login = () => {
 
 
     const handleLogin = async (values) => {
+        
         try {
             await FIREBASE.auth.signInWithEmailAndPassword(values.userMail, values.userPassword);
             await FIREBASE.auth.onAuthStateChanged(function (user) {
@@ -19,7 +20,7 @@ const Login = () => {
                     // User is signed in.
                     let uid = user.uid;
                     console.log('Pasar uid', uid);
-                    history.push(`/forosprincipal/${uid}`);
+                    history.push(`/misforos/${uid}`);
                 } else {
                     // User is signed out.
                     console.log('user loggedOut');
@@ -37,13 +38,13 @@ const Login = () => {
                 <Card className="BaseA cuadro-grande"  bordered={false}>
                     <Card className="BaseB cuadro-interno "  bordered={false}>
                     <h1>
-                        Se parte de nosotros y comparta sus opiniones,
-                        experiencias dentro de un ambiente
-                        seguro y abierto al diálogo.
+                        Iniciar sesión 
                     </h1>
                     <div>
                         <Form
                             name="basic"
+                            labelCol={{ span: 8 }}
+                            wrapperCol={{ span: 24 }}       
                             initialValues={{remember: true}}
                             onFinish={handleLogin}
 
@@ -66,7 +67,7 @@ const Login = () => {
                             <p><Link to="/passwordreset">¿Haz olvidado tu contraseña?</Link></p>
                             <p> <Link to="/bill">Crear cuenta</Link></p>
                             <Form.Item>
-                                <Button type="primary" htmlType="submit">
+                                <Button type="primary"  shape="round" htmlType="submit">
                                     Iniciar Sesion
                                 </Button>
                             </Form.Item>

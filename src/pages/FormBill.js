@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import { Steps} from "antd";
 import '../styles/bill.css';
-import UserAvatar from "../components/UserAvatar";
+
 import UserData from "../components/UserData";
 
 const { Step } = Steps;
@@ -27,14 +27,6 @@ const FormBill = () => {
         })
         console.log("dataBill", dataBill);
     }
-    const handleAddUserAvatar = (avatar) => {
-        SetDataBill( prevState => {
-            const newUserDataBill = {...prevState};
-            newUserDataBill.avatarUser = avatar;
-            return newUserDataBill;
-        })
-        console.log("dataBill", dataBill);
-    }
     const handleNext= () => {
         SetCurrent( current + 1);
     }
@@ -43,13 +35,7 @@ const FormBill = () => {
         SetCurrent(current - 1);
     }
     const steps = [
-        {
-            title: 'Seleccionar avatar',
-             content: <UserAvatar current = {current}
-                                             dataBill = { dataBill}
-                                             onNext = { handleNext }
-                                             onUpdateValues = { handleAddUserAvatar } />,
-        },
+        
         {
             title: 'Datos de usuario',
             content: <UserData current = {current}

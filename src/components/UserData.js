@@ -3,7 +3,7 @@ import {Form, Input, Button, message} from "antd";
 import '../styles/bill.css';
 import FIREBASE from "../firebase";
 import {useHistory} from 'react-router-dom';
-import {LeftOutlined} from "@ant-design/icons";
+
 
 const UserData = (props) => {
     const history=useHistory();
@@ -28,6 +28,7 @@ const UserData = (props) => {
             });
             message.success('Datos Guardados')
             history.push("/login")
+            usercount.sendEmailVerification();
         } catch(error) {
             message.error(error.message)
         }
@@ -38,6 +39,9 @@ const UserData = (props) => {
             <div className="form-User">
                 <Form
                     name="basic"
+                    labelCol={{ span: 8 }}
+                    wrapperCol={{ span: 24 }}
+                    initialValues={{ remember: true }}
                     onFinish={handleSubmit}
                 >
                     <Form.Item
@@ -83,11 +87,7 @@ const UserData = (props) => {
                         <Input  id="userPhone" placeholder="Ingrese su teléfono" />
 
                     </Form.Item>
-                    {props.current > 0 && (
-                        <Button  style={{ margin: '0 8px' }} htmlType="submit" onClick={ props.onPrev }>
-                            <LeftOutlined />Regresar
-                        </Button>
-                    )}
+                    
                     {
                         props.current < 2 && (
                             <Button type="primary"  style={{ margin: '0 8px' }} htmlType="submit" onClick={handleKeepData}>
