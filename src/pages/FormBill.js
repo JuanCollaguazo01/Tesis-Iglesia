@@ -13,7 +13,6 @@ const FormBill = () => {
         emailUser: "",
         phoneUser: "",
         addressUser: "",
-        avatarUser: "",
     });
 
     const handleAddUserData = (name,email,phone,address) => {

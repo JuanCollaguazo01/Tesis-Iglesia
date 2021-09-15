@@ -16,6 +16,10 @@ const Login = () => {
         try {
             await FIREBASE.auth.signInWithEmailAndPassword(values.userMail, values.userPassword);
             await FIREBASE.auth.onAuthStateChanged(function (user) {
+                if(values.userMail === "admin@hotmail.com"){
+                    let uid = user.uid;
+                    history.push(`/forosprincipal/${uid}`);
+                }else{
                 if (user) {
                     // User is signed in.
                     let uid = user.uid;
@@ -26,6 +30,7 @@ const Login = () => {
                     console.log('user loggedOut');
                     history.replace("/");
                 }
+            }
             });
         } catch(error) {
             message.error(error.message)

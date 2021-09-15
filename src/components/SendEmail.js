@@ -13,9 +13,9 @@ const SendEmail =()=>{
 
         const contact = { userEmail:  email ,  emailTitle: title , emailDetails:  info  };
 
-        console.log("datos ", email + title + info );
+        //console.log("datos ", email + title + info );
 
-         emailjs.send("service_pq3tvs8", "template_99mm9bu", contact, "user_dP2gJTXD1UptWZ59YXc8o"  )
+         emailjs.send("Iglesia", "template_99mm9bu", contact, "user_dP2gJTXD1UptWZ59YXc8o"  )
              .then((response) => {
                  console.log("SUCCESS!", response.status, response.text);
                  message.success('Se ha enviado su correo con éxito. ');
@@ -45,7 +45,7 @@ const SendEmail =()=>{
                           <Divider />
                           <Row gutter={16} align="center">
                               <Col xs={20} sm={20} md={10} lg={10}  span={8}>
-                                  <a href="https://www.google.com.ec/maps/place/Iglesia+de+Santa+Clara+de+San+Millan/@-0.2008627,-78.5022018,16.04z/data=!4m5!3m4!1s0x91d59a6a84509707:0x89be520ae2a35ade!8m2!3d-0.1996867!4d-78.4974002?hl=es-419"
+                                  <a href="https://www.google.com.ec/maps/place/Iglesia+de+Santa+Clara+de+San+Millan/@-0.2008627,-78.5022018,16z/data=!4m5!3m4!1s0x91d59a6a84509707:0x89be520ae2a35ade!8m2!3d-0.1996867!4d-78.4974002?hl=es-419"
                                    >
                                       <img
                                           style={{ width: '100%', height: '90%' }}
@@ -59,7 +59,6 @@ const SendEmail =()=>{
                                   <Form name="sendEmailInfo"
                                         labelCol={{ span: 6 }}
                                         wrapperCol={{ span: 24 }}
-                                        initialValues={{ remember: true }}
                                         onFinish={ handleSubmit }>
                                     
                                     
@@ -68,7 +67,7 @@ const SendEmail =()=>{
                                                      type: 'email',
                                                      required: true,
                                                      message: "Ingrese un correo electrónico" }]}>
-                                          <Input type="email" placeholder="Ingrese su correo electrónico " name="email"/>
+                                          <Input placeholder="Ingrese su correo electrónico "/>
                                       </Form.Item>
                                       
                                       <Form.Item name={['user', 'subject']} label="Asunto"
@@ -83,11 +82,11 @@ const SendEmail =()=>{
                                                      required: true,
                                                      message: "Ingrese el mensaje o petición que tenga"}]}>
 
-                                          <Input.TextArea placeholder="Ingrese su mensaje " name="message"/>
+                                          <Input.TextArea placeholder="Ingrese su mensaje "/>
                                       </Form.Item>
                                     
                                       <Form.Item >
-                                          <Button type="primary" htmlType="submit"  shape="round">
+                                          <Button type="primary" htmlType="submit" shape="round">
                                               Enviar
                                           </Button>
                                       </Form.Item>

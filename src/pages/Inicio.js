@@ -2,12 +2,12 @@ import React from 'react';
 import {Card, Col, Row, Button} from 'antd';
 import '../styles/App.css';
 import '../styles/inicio.css';
-import ImgSobreNosotros1 from '../images/logo.svg';
-import ImgSobreNosotros2 from '../images/logo.svg';
-import ImgSobreNosotros3 from '../images/logo.svg';
-import ImgEquipo1 from '../images/logo.svg';
-import ImgEquipo2 from '../images/logo.svg';
-import ImgEquipo3 from '../images/logo.svg';
+import ImgSobreNosotros1 from '../images/iglesia_santa_clara.jpg';
+import ImgSobreNosotros2 from '../images/iglesia_2.jpg';
+import ImgSobreNosotros3 from '../images/imagen_misa.jpg';
+import ImgEquipo1 from '../images/padre.jpg';
+import ImgEquipo2 from '../images/arsobispo.jpg';
+import ImgEquipo3 from '../images/obispo.jpg';
 
 import Meta from "antd/es/card/Meta";
 import Divider from "antd/es/divider";
@@ -134,8 +134,8 @@ const Inicio = () => {
                                         }
                                     >
                                         <Meta
-                                            title="Hermana Josefina "
-                                            description="Monja"
+                                            title="Calispa Gualotuña Manuel Edmundo "
+                                            description="Padre Párroco"
                                         />
                                     </Card>
                                 </Col>
@@ -151,8 +151,8 @@ const Inicio = () => {
                                         }
                                     >
                                         <Meta
-                                            title="Mons. Danilo Echeverría"
-                                            description="Obispo"
+                                            title="Andrés Carrascosa Coso"
+                                            description="Arzobispo Ecuador"
                                         />
                                     </Card>
                                 </Col>
@@ -168,8 +168,8 @@ const Inicio = () => {
                                         }
                                     >
                                         <Meta
-                                            title="Mons. David Israel de la Torre"
-                                            description="Arzobispo "
+                                            title="Alfredo José Espinoza Mateus SDB"
+                                            description="Arzobispo Quito "
                                         />
                                     </Card>
 

@@ -21,14 +21,12 @@ const UserData = (props) => {
             console.log('usuario',usercount)
             await FIREBASE.db.ref(`users/${usercount.user.uid}/`).set({
                 address: values.userAddress,
-                avatar: props.dataBill.avatarUser,
                 email: values.userMail,
                 name: values.userName,
                 phone: values.userPhone,
             });
             message.success('Datos Guardados')
             history.push("/login")
-            usercount.sendEmailVerification();
         } catch(error) {
             message.error(error.message)
         }

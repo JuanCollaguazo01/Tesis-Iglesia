@@ -5,7 +5,7 @@ import '../styles/forosprincipal.css';
 import Foot from "../components/Foot";
 import HeaderForums from "../components/HeaderForums";
 import FIREBASE from "../firebase";
-import {Link, useParams} from "react-router-dom";
+import { useParams} from "react-router-dom";
 import {normalizeString} from "./MainForum";
 
 
@@ -13,7 +13,7 @@ import {normalizeString} from "./MainForum";
 const MyForums = () => {
     
     const { uid } = useParams();
-    console.log('pasar a mis foros',uid);
+    //console.log('pasar a mis foros',uid);
     const [dataForums, setDataForums] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
     const [search, setSearch] = useState("");
@@ -21,20 +21,19 @@ const MyForums = () => {
 
     useEffect( () => {
         const getDataComments  = async () => {
-            FIREBASE.db.ref('forums').on('value', (snapshot) => {
+            FIREBASE.db.ref('masses').on('value', (snapshot) => {
                 //console.log('snapshot', snapshot.val());
                 const forumsData = [];
                 snapshot.forEach( (data) => {
                     //  console.log('comment', data.val());
                     const forums = data.val();
                     const id = forums.userid;
-
                     if (id === uid){
                         forumsData.push({
                             key: data.key,
-                            Titulo: forums.title,
-                            Usuario: forums.name,
-                            Fecha: forums.date,
+                            Titulo: forums.day,
+                            Usuario: forums.schedule,
+                            Fecha: forums.phone,
                         });
                     }
 
@@ -60,11 +59,6 @@ const MyForums = () => {
             title: 'Fecha',
             dataIndex: 'Titulo',
             key: 'Titulo',
-            render: (text, foro) =>  <Link to={{
-                pathname: `/Foro/${foro.key}/${uid}`
-            }}>
-                {text}
-            </Link>,
         },
         {
             title: 'Hora',

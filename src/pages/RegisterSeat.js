@@ -1,31 +1,23 @@
 import React from "react";
-import { Card} from "antd";
+import { Card } from "antd";
 import '../styles/registrarAsiento.css';
-import Foot from "../components/Foot";
-import FormRegisterSeat from "../components/FormRegisterSeat";
-
-
-
+import '../styles/App.css';
+import '../styles/forosprincipal.css';
 import '../styles/foro.css';
+import FormRegisterSeat from "../components/FormRegisterSeat";
+import Foot from "../components/Foot";
+import { useParams} from "react-router-dom";
 import HeaderForums from "../components/HeaderForums";
 
 
-import { useParams} from "react-router-dom";
-
-
-
 const RegisterSeat = () => {
+    const { uid } = useParams();
     
-    
-    
- 
-    const {uid} = useParams();
-    
-    
+   
 
     return (
         <div>
-            <HeaderForums user={uid}/>
+            <HeaderForums uid = {uid}/>
             <div className="site-card-border-less-wrapper background-register-seat" align="center">
                 <Card className="colorBaseA big-card-size" bordered={true}>
                     <h2>Registrar Asiento</h2>

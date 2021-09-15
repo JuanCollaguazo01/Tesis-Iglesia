@@ -4,17 +4,19 @@ import moment from "moment";
 import FIREBASE from "../firebase";
 import CreatePDF from "./CreatePDF";
 import {LeftOutlined, CloseCircleOutlined, CheckCircleTwoTone  } from "@ant-design/icons";
+import { useParams} from "react-router-dom";
 
 const ConfirmSeat = (props) => {
 
     const massDate = moment( (props.dataUser.dayMass + props.dataUser.scheduleMass ) , "YYYY-MM-DD h:mm:ss ").unix();
     const [ dataMasses, setDataMasses] = useState([]);
     const [ saveSeat, setSaveSeat] = useState(true );
-
+    const { uid } = useParams();
 
     useEffect( () => {
         const getMassess  = async () => {
             FIREBASE.db.ref('masses/' + massDate + '/').on('value', (snapshot) => {
+                //console.log('comment', snapshot);
                 const massesData = [];
                 snapshot.forEach( (data) => {
                     const mass = data.val();
@@ -23,7 +25,9 @@ const ConfirmSeat = (props) => {
                     massesData.push({
                         key: massId,
                         data: mass,
+                        
                     });
+                    //console.log('comment5555', mass);
                 });
                 setDataMasses(massesData);
 
@@ -54,6 +58,9 @@ const ConfirmSeat = (props) => {
                 name: props.dataUser.nameUser,
                 phone: props.dataUser.phoneUser,
                 identificationCard: props.dataUser.identificationCard,
+                userid: uid,
+                day: props.dataUser.dayMass,
+                schedule: props.dataUser.scheduleMass,
             }, function(error) {
                 if (error) {
                     message.error("No se ha podido registrar sus datos");

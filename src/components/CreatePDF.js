@@ -4,6 +4,9 @@ import {Link} from "react-router-dom";
 import { DownloadOutlined, HomeOutlined} from "@ant-design/icons";
 import '../styles/createPdf.css';
 import jsPDF from 'jspdf';
+import { useParams} from "react-router-dom";
+
+
 var QRCode = require('qrcode.react');
 
 
@@ -50,7 +53,9 @@ const PDF = (props) => {
     //     downloadLink.click();
     //     document.body.removeChild(downloadLink);
     // };
-
+    const { uid } = useParams();
+    
+    
 
 
     return (
@@ -104,7 +109,8 @@ const PDF = (props) => {
             <Button type="primary" shape="round"  onClick={ handlegeneratePDF }>
                 <DownloadOutlined/> Guardar Ticket
             </Button>
-            <Button type="primary" shape="round" danger  > <Link to="/"> Salir <HomeOutlined /></Link>  </Button>
+            
+            <Button shape="round" > <Link to={{pathname: `/misforos/${uid}`}}>Mis Horarios <HomeOutlined /></Link>  </Button>
         </div>
     );
 }

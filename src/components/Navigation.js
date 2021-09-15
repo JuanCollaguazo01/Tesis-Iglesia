@@ -9,8 +9,7 @@ import Profile from "../pages/Profile";
 import RegisterSeat from "../pages/RegisterSeat";
 import FormBill from "../pages/FormBill";
 import MyForums from "../pages/MyForums";
-import CreateForum from "../pages/CreateForum";
-import Forum from "../pages/Forum";
+
 import UpdateProfile from "../pages/UpdateProfile";
 
 const Navigation = () => {
@@ -44,12 +43,7 @@ const Navigation = () => {
             <Route path="/misforos/:uid">
                 <MyForums/>
             </Route>
-            <Route path="/crearforos/:uid">
-                <CreateForum/>
-            </Route>
-            <Route path="/foro/:id/:uid">
-                <Forum/>
-            </Route>
+            
             <Route path="/actualizarperfil/:uid">
                 <UpdateProfile/>
             </Route>
