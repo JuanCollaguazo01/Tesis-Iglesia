@@ -6,7 +6,7 @@ import Foot from "../components/Foot";
 import HeaderForums from "../components/HeaderForums";
 import {useParams} from "react-router-dom";
 import FIREBASE from "../firebase";
-import { KeyOutlined } from '@ant-design/icons';
+
 
 export const normalizeString = ( string ) => (
     string
@@ -35,27 +35,29 @@ const MainForum = () => {
 
     useEffect( () => {
         const getDataListForums  = async () => {
-                FIREBASE.db.ref('masses/'  + '/').on('value', (snapshot) => {
+                FIREBASE.db.ref('masses').on('value', (snapshot) => {
                 //console.log('snapshot1', snapshot.val());
                 const listForumsData = [];
                 snapshot.forEach( (data) => {
                     
                     const forums = data.val();
-                    const forumsId = data.key;
-                    
-                    let imp = forums;
-                                      
-                    listForumsData.push({
-                        key: forumsId,
-                        Titulo: imp,
-                        //Usuario: forums.schedule,
-                        //Fecha: forums.phone,                        
+                    Object.keys(forums).forEach((key)=>{
+                        //console.log(forums[key].day);
+
+                        listForumsData.push({
+                            name: forums[key].name,
+                            cardId: forums[key].identificationCard,
+                            day: forums[key].day,
+                            schedule: forums[key].schedule,
+                            confirm: forums[key],                        
+                        });
+                        //console.log('snapshot', listForumsData);
                     });
-                    console.log('snapshot', imp);
+                    
                     
                 });
                 
-                //console.log('comment', listForumsData);
+                //console.log('comment', uid);
                 setDataListForums(listForumsData);
                 setIsLoading(false);
             });
@@ -69,25 +71,41 @@ const MainForum = () => {
 
     const columns = [
         {
-            title: 'Tema',
-            dataIndex: 'Titulo',
-            key: 'Titulo',
+            title: 'Nombre',
+            dataIndex: 'name',
+            key: 'name',
            
         },
         {
-            title: 'Autor',
-            dataIndex: 'Usuario',
-            key: 'Usuario',
+            title: 'Cedula',
+            dataIndex: 'cardId',
+            key: 'cardId',
+           
         },
         {
             title: 'Fecha',
-            dataIndex: 'Fecha',
-            key: 'Fecha',
+            dataIndex: 'day',
+            key: 'day',
+           
+        },
+        {
+            title: 'Hora',
+            dataIndex: 'schedule',
+            key: 'schedule',
+        },
+        {
+            title: 'Asistencia',
+            dataIndex: 'confirm',
+            key: 'confirm',
+            render: (elimina) => (
+                <button onClick={()=> console.log(elimina) }>
+                  {"eliminar"}
+                </button>
+               ),
         },
     ];
 
-    //<Table dataSource={ dataListForums.filter((forums, index)=> normalizeString(forums.Titulo).includes(normalizeString(search))  ) }
-                                   //columns={ columns } loading={isLoading} />
+   
 
     return (
         <div>
@@ -101,7 +119,8 @@ const MainForum = () => {
                     <Card className="colorBaseA tamanio-cuadro" bordered={true} align="left">
                         <p className="tam-titu2"><strong>Horarios juan:</strong></p>
                         <Card className="colorBaseB internal-box-size " bordered={true} align="center">
-                            
+                        <Table dataSource={ dataListForums.filter((forums, index)=> normalizeString(forums.name).includes(normalizeString(search))  ) }
+                                   columns={ columns } loading={isLoading} />
                         </Card>
                     </Card>
                 </div>

@@ -28,8 +28,7 @@ const UpdateProfile = () => {
                     address: profile.address,
                     email: profile.email,
                     name: profile.name,
-                    phone:profile.phone,
-                    avatar:profile.avatar
+                    phone:profile.phone
                 };
                 //console.log('profileData', profileData);
                 setDataProfile(profileData);
@@ -42,15 +41,14 @@ const UpdateProfile = () => {
 
 
     const onFinish = async (values) => {
-        console.log('valores pasados al click perfil ', values);
+        //console.log('valores pasados al click perfil ', values);
         //console.log('id usuaruip perfil ', uid);
-        console.log('dataProfile-guardar: ', dataProfile);
+        //console.log('dataProfile-guardar: ', dataProfile);
         await FIREBASE.db.ref(`users/${ uid }`).set({
             address: values.address,
             name: values.name,
             phone: values.phone,
-            email: dataProfile.email,
-            avatar: dataProfile.avatar
+            email: dataProfile.email
         });
         message.success('Los datos del perfil se actualizaron corectamente');
         history.push(`/misforos/${uid}`)

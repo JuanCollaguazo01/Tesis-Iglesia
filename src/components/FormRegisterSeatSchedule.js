@@ -57,10 +57,10 @@ const FormRegisterSeatSchedule = (props) =>{
                                 <div className="content-select">
                                     <select id="select-schedule" >
                                         <option> </option>
-                                        <option value='7:00:00'>7:00 - 9:00</option>
-                                        <option value='10:00:00'>10:00 - 12:00</option>
-                                        <option value='14:00:00'>14:00 - 16:00</option>
-                                        <option value='18:00:00'>18:00 - 20:00</option>
+                                        <option value='7:00:00'>7:00 - 8:00</option>
+                                        <option value='10:00:00'>10:00 - 11:00</option>
+                                        <option value='14:00:00'>14:00 - 15:00</option>
+                                        <option value='18:00:00'>18:00 - 19:00</option>
                                     </select>
                                     <i></i>
                                 </div>

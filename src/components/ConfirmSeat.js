@@ -16,7 +16,7 @@ const ConfirmSeat = (props) => {
     useEffect( () => {
         const getMassess  = async () => {
             FIREBASE.db.ref('masses/' + massDate + '/').on('value', (snapshot) => {
-                //console.log('comment', snapshot);
+                //console.log('comment555555', massDate);
                 const massesData = [];
                 snapshot.forEach( (data) => {
                     const mass = data.val();

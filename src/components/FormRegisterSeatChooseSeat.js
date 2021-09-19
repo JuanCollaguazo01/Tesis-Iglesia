@@ -24,9 +24,12 @@ const getSeats=( availableSeats )=> {
     for (let seatkey in seats) {
         search = availableSeats.filter( ( item ) => item.key  === seatkey ).map(() =>{
             return seatkey;
+            
             }
+            
         );
         seatkey === search ?
+        
         seatsOptions.push(
             {
                 label: seatkey ,

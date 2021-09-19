@@ -23,7 +23,7 @@ const Login = () => {
                 if (user) {
                     // User is signed in.
                     let uid = user.uid;
-                    console.log('Pasar uid', uid);
+                    //console.log('Pasar uid', uid);
                     history.push(`/misforos/${uid}`);
                 } else {
                     // User is signed out.

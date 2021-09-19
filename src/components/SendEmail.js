@@ -17,13 +17,13 @@ const SendEmail =()=>{
 
          emailjs.send("Iglesia", "template_99mm9bu", contact, "user_dP2gJTXD1UptWZ59YXc8o"  )
              .then((response) => {
-                 console.log("SUCCESS!", response.status, response.text);
+                 //console.log("SUCCESS!", response.status, response.text);
                  message.success('Se ha enviado su correo con éxito. ');
                  document.querySelector('#sendEmailInfo_user_email').value = "";
                  document.querySelector('#sendEmailInfo_user_subject').value = "";
                  document.querySelector('#sendEmailInfo_user_message').value = "";
              }, (err) => {
-                 console.log("FAILED...", err);
+                 //console.log("FAILED...", err);
                  message.success('No se ha podido enviar su correo. Error:' + err );
              });
     }

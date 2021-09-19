@@ -7,7 +7,8 @@ import HeaderForums from "../components/HeaderForums";
 import FIREBASE from "../firebase";
 import { useParams} from "react-router-dom";
 import {normalizeString} from "./MainForum";
-
+//import app from 'firebase/app';
+//const db = app.database();
 
 
 const MyForums = () => {
@@ -27,15 +28,21 @@ const MyForums = () => {
                 snapshot.forEach( (data) => {
                     //  console.log('comment', data.val());
                     const forums = data.val();
-                    const id = forums.userid;
-                    if (id === uid){
-                        forumsData.push({
-                            key: data.key,
-                            Titulo: forums.day,
-                            Usuario: forums.schedule,
-                            Fecha: forums.phone,
+                    
+                    Object.keys(forums).forEach((key)=>{
+                        //console.log(forums[key].day);
+                        if(forums[key].userid === uid){
+                            forumsData.push({                            
+                            day: forums[key].day,
+                            schedule: forums[key].schedule,
+                            confirm: forums[key],                        
                         });
-                    }
+                        //console.log(forums);
+                        
+                        };
+                    });
+
+                    
 
                     //const names = [forum.name]
                     //console.log("holaaaa",names.filter(name => name.includes(uid.name)));
@@ -47,6 +54,16 @@ const MyForums = () => {
         };
         getDataComments();
     }, []);
+    
+
+    //eliminar
+    //function eliminar(confirm){
+       // db.collection('masses').doc(confirm).delete().then(() => {
+            //console.log("documento eliminado!");
+       // }).catch((error) => {
+          //  console.error("Error eliminando: ", error);
+        //});
+    //}
 
 
     //console.log('dataForums',dataForums);
@@ -57,18 +74,23 @@ const MyForums = () => {
     const columns = [
         {
             title: 'Fecha',
-            dataIndex: 'Titulo',
-            key: 'Titulo',
+            dataIndex: 'day',
+            key: 'day',
         },
         {
             title: 'Hora',
-            dataIndex: 'Usuario',
-            key: 'Usuario',
+            dataIndex: 'schedule',
+            key: 'schedule',
         },
         {
             title: 'Asistencia',
-            dataIndex: 'Fecha',
-            key: 'Fecha',
+            dataIndex: 'confirm',
+            key: 'confirm',
+            render: (elimina) => (
+                <button  onClick={()=> console.log(elimina)  }>
+                  {"eliminar"}
+                </button>
+               ),
         },
     ];
 
@@ -88,7 +110,7 @@ const MyForums = () => {
                         <Card className="colorBaseB internal-box-size " bordered={true} align="center">
 
 
-                            <Table dataSource={  dataForums.filter((forums, index)=> normalizeString(forums.Titulo).includes(normalizeString(search))  ) }
+                            <Table dataSource={  dataForums.filter((forums, index)=> normalizeString(forums.day||forums.day).includes(normalizeString(search))  ) }
                                    columns={ columns } loading={isLoading} />   
 
                         </Card>
