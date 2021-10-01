@@ -1,21 +1,81 @@
 import React, {useEffect, useState} from "react";
-import {Button, Card, Col, Divider, Form,  Radio, Row} from "antd";
+import {Button, Card, Col, Divider, Form,  Radio, Row } from "antd";
 import '../styles/registrarAsiento.css';
 import moment from 'moment';
 import FIREBASE from "../firebase";
 import { RightOutlined, LeftOutlined} from "@ant-design/icons";
 
-const seats={
-    A1: "A1", A2:"A2", A3: "A3", A4: "A4", A5: "A5", A6: "A6", A7: "A7", A8: "A8", A9: "A9",
-    A10: "A10",
-    B1: "B1", B2: "B2", B3: "B3", B4: "B4", B5: "B5", B6: "B6", B7: "B7", B8: "B8", B9: "B9",
-    B10: "B10",
-    C1: "C1", C2: "C2", C3: "C3", C4: "C4", C5: "C5", C6: "C6", C7: "C7", C8: "C8", C9: "C9",
-    C10: "C10",
-    D1: "D1", D2: "D2", D3: "D3", D4: "D4", D5: "D5", D6: "D6", D7: "D7", D8: "D8", D9: "D9",
-    D10: "D10",
-    E1: "E1", E2: "E2", E3: "E3", E4: "E4", E5: "E5", E6: "E6", E7: "E7", E8: "E8", E9: "E9",
-    E10: "E10",
+/** const { Option } = Select;
+
+
+function handleChange( value,valu ){
+//console.log("asas",value.value);
+    if (value.value == 10){
+        valu = {
+            A1: "A1", A2: "A2", A3: "A3", A4: "A4", A5: "A5", 
+            A6: "A6", A7: "A7", A8: "A8", A9: "A9", A10: "A10",
+        };
+    }
+    if(value.value == 20){
+        valu = {
+            A1: "A1", A2: "A2", A3: "A3", A4: "A4", A5: "A5", 
+            A6: "A6", A7: "A7", A8: "A8", A9: "A9", A10: "A10",
+            B1: "B1", B2: "B2", B3: "B3", B4: "B4", B5: "B5", 
+            B6: "B6", B7: "B7", B8: "B8", B9: "B9", B10: "B10",
+        };
+    }
+    if(value.value == 30){
+        valu = {
+            A1: "A1", A2: "A2", A3: "A3", A4: "A4", A5: "A5", 
+            A6: "A6", A7: "A7", A8: "A8", A9: "A9", A10: "A10",
+            B1: "B1", B2: "B2", B3: "B3", B4: "B4", B5: "B5", 
+            B6: "B6", B7: "B7", B8: "B8", B9: "B9", B10: "B10",
+            C1: "C1", C2: "C2", C3: "C3", C4: "C4", C5: "C5", 
+            C6: "C6", C7: "C7", C8: "C8", C9: "C9", C10: "C10",
+        };
+    }
+    if(value.value == 40){
+        valu = {
+            A1: "A1", A2: "A2", A3: "A3", A4: "A4", A5: "A5", 
+            A6: "A6", A7: "A7", A8: "A8", A9: "A9", A10: "A10",
+            B1: "B1", B2: "B2", B3: "B3", B4: "B4", B5: "B5", 
+            B6: "B6", B7: "B7", B8: "B8", B9: "B9", B10: "B10",
+            C1: "C1", C2: "C2", C3: "C3", C4: "C4", C5: "C5", 
+            C6: "C6", C7: "C7", C8: "C8", C9: "C9", C10: "C10",
+            D1: "D1", D2: "D2", D3: "D3", D4: "D4", D5: "D5", 
+            D6: "D6", D7: "D7", D8: "D8", D9: "D9", D10: "D10",
+        };
+    }
+    if(value.value == 50){
+        valu = {
+            A1: "A1", A2: "A2", A3: "A3", A4: "A4", A5: "A5", 
+            A6: "A6", A7: "A7", A8: "A8", A9: "A9", A10: "A10",
+            B1: "B1", B2: "B2", B3: "B3", B4: "B4", B5: "B5", 
+            B6: "B6", B7: "B7", B8: "B8", B9: "B9", B10: "B10",
+            C1: "C1", C2: "C2", C3: "C3", C4: "C4", C5: "C5", 
+            C6: "C6", C7: "C7", C8: "C8", C9: "C9", C10: "C10",
+            D1: "D1", D2: "D2", D3: "D3", D4: "D4", D5: "D5", 
+            D6: "D6", D7: "D7", D8: "D8", D9: "D9", D10: "D10",
+            E1: "E1", E2: "E2", E3: "E3", E4: "E4", E5: "E5", 
+            E6: "E6", E7: "E7", E8: "E8", E9: "E9", E10: "E10",
+        };
+    }
+    //console.log("aaaa",valu);
+    return valu;
+}
+*/
+
+const seats={ 
+    A1: "A1", A2: "A2", A3: "A3", A4: "A4", A5: "A5", 
+    A6: "A6", A7: "A7", A8: "A8", A9: "A9", A10: "A10",
+    B1: "B1", B2: "B2", B3: "B3", B4: "B4", B5: "B5", 
+    B6: "B6", B7: "B7", B8: "B8", B9: "B9", B10: "B10",
+    C1: "C1", C2: "C2", C3: "C3", C4: "C4", C5: "C5", 
+    C6: "C6", C7: "C7", C8: "C8", C9: "C9", C10: "C10",
+    D1: "D1", D2: "D2", D3: "D3", D4: "D4", D5: "D5", 
+    D6: "D6", D7: "D7", D8: "D8", D9: "D9", D10: "D10",
+    E1: "E1", E2: "E2", E3: "E3", E4: "E4", E5: "E5", 
+    E6: "E6", E7: "E7", E8: "E8", E9: "E9", E10: "E10",
 };
 
 const getSeats=( availableSeats )=> {
@@ -24,11 +84,13 @@ const getSeats=( availableSeats )=> {
     for (let seatkey in seats) {
         search = availableSeats.filter( ( item ) => item.key  === seatkey ).map(() =>{
             return seatkey;
-            
             }
             
         );
-        seatkey === search ?
+        
+        //console.log("seat",seatkey);
+        //console.log("search",search);
+        seatkey == search ?
         
         seatsOptions.push(
             {
@@ -45,6 +107,7 @@ const getSeats=( availableSeats )=> {
                     style: { margin: '8px' },
                 }
             )
+            
     }
     return seatsOptions;
 }
@@ -93,6 +156,22 @@ const FormRegisterSeatChooseSeat = (props) =>{
                     <p> Usted ha seleccionado esta fecha: { props.dataUser.dayMass }</p>
                     <p> En el horario de las: {props.dataUser.scheduleMass }</p>
                     <div>
+                        {
+                        /**<div>
+                        <Select
+                            labelInValue
+                            defaultValue={{ value: '10' }}
+                            style={{ width: 120 }}
+                            onChange={handleChange}
+                        >
+                            <Option value="10">10 personas</Option>
+                            <Option value="20">20 personas</Option>
+                            <Option value="30">30 personas</Option>
+                            <Option value="40">40 personas</Option>
+                            <Option value="50">50 persomas</Option>
+                        </Select>
+                        </div>*/
+                        }
                         <Form
                             name="register-seat"
                             onFinish={ ()=> handleReturnData(true)}

@@ -1,10 +1,8 @@
 import React from 'react';
 import {Button, Card, Col, Descriptions, Divider, Row, Space} from "antd";
-import {Link} from "react-router-dom";
-import { DownloadOutlined, HomeOutlined} from "@ant-design/icons";
+import { DownloadOutlined} from "@ant-design/icons";
 import '../styles/createPdf.css';
 import jsPDF from 'jspdf';
-import { useParams} from "react-router-dom";
 
 
 var QRCode = require('qrcode.react');
@@ -40,24 +38,7 @@ const PDF = (props) => {
         doc.addImage(imgData, QRCode, 240, 10, 120, 100)
         doc.save('Asiento.pdf')
     }
-
-    // const downloadQR = () => {
-    //     const canvas = document.getElementById("123456");
-    //     const pngUrl = canvas
-    //         .toDataURL("image/png")
-    //         .replace("image/png", "image/octet-stream");
-    //     let downloadLink = document.createElement("a");
-    //     downloadLink.href = pngUrl;
-    //     downloadLink.download = "123456.png";
-    //     document.body.appendChild(downloadLink);
-    //     downloadLink.click();
-    //     document.body.removeChild(downloadLink);
-    // };
-    const { uid } = useParams();
-    
-    
-
-
+       
     return (
         <div>
             <Card className="form-sizes " bordered={true}>
@@ -109,8 +90,6 @@ const PDF = (props) => {
             <Button type="primary" shape="round"  onClick={ handlegeneratePDF }>
                 <DownloadOutlined/> Guardar Ticket
             </Button>
-            
-            <Button shape="round" > <Link to={{pathname: `/misforos/${uid}`}}>Mis Horarios <HomeOutlined /></Link>  </Button>
         </div>
     );
 }

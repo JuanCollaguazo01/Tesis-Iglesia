@@ -9,3 +9,10 @@
 .tam-text{
     width: 100px;
 }
+.headeradmin{
+    background-color: #006989;
+    position: absolute;
+    left: 0px;
+    width: 100%;
+    text-align: center;
+  }

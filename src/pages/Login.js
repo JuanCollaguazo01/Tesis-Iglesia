@@ -27,7 +27,7 @@ const Login = () => {
                     history.push(`/misforos/${uid}`);
                 } else {
                     // User is signed out.
-                    console.log('user loggedOut');
+                    //console.log('user loggedOut');
                     history.replace("/");
                 }
             }

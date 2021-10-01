@@ -3,15 +3,16 @@ import { Card, Input, Table} from 'antd';
 import '../styles/App.css';
 import '../styles/forosprincipal.css';
 import Foot from "../components/Foot";
-import HeaderForums from "../components/HeaderForums";
+import HeaderAdmin from "../components/HeaderAdmin";
 import FIREBASE from "../firebase";
 import { useParams} from "react-router-dom";
 import {normalizeString} from "./MainForum";
+import Breadcrumb from "../components/Breadcrumbs";
 //import app from 'firebase/app';
 //const db = app.database();
 
 
-const MyForums = () => {
+const MyForumsAdmin = () => {
     
     const { uid } = useParams();
     //console.log('pasar a mis foros',uid);
@@ -51,6 +52,7 @@ const MyForums = () => {
         getDataComments();
     }, []);
     
+
     const ondeleted = (key) => {
         if (window.confirm("Estas seguro que deseas eliminar")) {
             //console.log('commentsss', key);
@@ -63,8 +65,6 @@ const MyForums = () => {
             })
         }
     }
-
-    //console.log('dataForums',dataForums);
 
     const { Search } = Input;
 
@@ -102,15 +102,12 @@ const MyForums = () => {
                ),
         },
     ];
-   
-    
 
 
     return (
         <div>
-
-            <HeaderForums uid = {uid}/>
-
+            <HeaderAdmin uid = {uid}/>
+            <Breadcrumb/>
             <div className="fondo-foros">
                 <div align="center">
                     <p className="tam-titu"><strong>Horarios</strong></p>
@@ -121,7 +118,7 @@ const MyForums = () => {
                         <Card className="colorBaseB internal-box-size " bordered={true} align="center">
 
 
-                            <Table  dataSource={  dataForums.filter((forums, index)=> normalizeString(forums.name).includes(normalizeString(search))  ) }
+                            <Table dataSource={  dataForums.filter((forums, index)=> normalizeString(forums.day||forums.day).includes(normalizeString(search))  ) }
                                    columns={ columns } loading={isLoading} />   
 
                         </Card>
@@ -134,4 +131,4 @@ const MyForums = () => {
 }
 
 
-export default MyForums;
+export default MyForumsAdmin;

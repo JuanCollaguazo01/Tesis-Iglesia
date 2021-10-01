@@ -45,7 +45,7 @@ const SendEmail =()=>{
                           <Divider />
                           <Row gutter={16} align="center">
                               <Col xs={20} sm={20} md={10} lg={10}  span={8}>
-                                  <a href="https://www.google.com.ec/maps/place/Iglesia+de+Santa+Clara+de+San+Millan/@-0.2008627,-78.5022018,16z/data=!4m5!3m4!1s0x91d59a6a84509707:0x89be520ae2a35ade!8m2!3d-0.1996867!4d-78.4974002?hl=es-419"
+                                  <a to="route" target="blank" href="https://www.google.com.ec/maps/place/Iglesia+de+Santa+Clara+de+San+Millan/@-0.2008627,-78.5022018,16z/data=!4m5!3m4!1s0x91d59a6a84509707:0x89be520ae2a35ade!8m2!3d-0.1996867!4d-78.4974002?hl=es-419"
                                    >
                                       <img
                                           style={{ width: '100%', height: '90%' }}

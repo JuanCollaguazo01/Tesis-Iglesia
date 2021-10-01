@@ -1,7 +1,6 @@
 import React, {useState} from 'react';
 import { Steps} from "antd";
 import '../styles/bill.css';
-
 import UserData from "../components/UserData";
 
 const { Step } = Steps;
@@ -24,7 +23,7 @@ const FormBill = () => {
             newUserDataBill.addressUser = address;
             return newUserDataBill;
         })
-        console.log("dataBill", dataBill);
+        
     }
     const handleNext= () => {
         SetCurrent( current + 1);

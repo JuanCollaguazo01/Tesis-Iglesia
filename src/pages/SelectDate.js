@@ -3,18 +3,16 @@ import { Card, Input, Table} from 'antd';
 import '../styles/App.css';
 import '../styles/forosprincipal.css';
 import Foot from "../components/Foot";
-import HeaderForums from "../components/HeaderForums";
+import HeaderAdmin from "../components/HeaderAdmin";
 import FIREBASE from "../firebase";
 import { useParams} from "react-router-dom";
 import {normalizeString} from "./MainForum";
-//import app from 'firebase/app';
-//const db = app.database();
+import Breadcrumb from "../components/Breadcrumbs";
 
 
-const MyForums = () => {
+const SelectDate = () => {
     
     const { uid } = useParams();
-    //console.log('pasar a mis foros',uid);
     const [dataForums, setDataForums] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
     const [search, setSearch] = useState("");
@@ -25,21 +23,25 @@ const MyForums = () => {
             FIREBASE.db.ref('masses').on('value', (snapshot) => {
                 //console.log('snapshot', snapshot.val());
                 const forumsData = [];
-                const datos = snapshot.val();
-                Object.keys(datos).forEach(( i) => {
-                    //console.log('i', i);
-                    const forums = datos[i];
-                    //console.log("forums", forums);
-                    Object.keys(forums).forEach((key) => {
-                        //console.log("key", forums[key]);
+                snapshot.forEach( (data) => {
+                    //  console.log('comment', data.val());
+                    const forums = data.val();
+                    
+                    Object.keys(forums).forEach((key)=>{
+                        //console.log(forums[key].day);
                         if(forums[key].userid === uid){
-                            forumsData.push({
-                                key: i+'/'+key,
-                                ...forums[key]
-                            });
+                            forumsData.push({                            
+                            day: forums[key].day,
+                            schedule: forums[key].schedule,
+                            confirm: forums[key],                        
+                        });
+                        console.log(forums[key].day);
+                        
                         };
-                            //console.log(forums); 
                     });
+
+                    
+
                     //const names = [forum.name]
                     //console.log("holaaaa",names.filter(name => name.includes(uid.name)));
                 });
@@ -50,67 +52,40 @@ const MyForums = () => {
         };
         getDataComments();
     }, []);
-    
-    const ondeleted = (key) => {
-        if (window.confirm("Estas seguro que deseas eliminar")) {
-            //console.log('commentsss', key);
-            FIREBASE.db.ref(`masses/${key}`).remove((err) => {
-                if (err) {
-                    window.confirm(err);
-                } else {
-                    window.confirm("Horario eliminado");
-                }
-            })
-        }
-    }
-
-    //console.log('dataForums',dataForums);
 
     const { Search } = Input;
 
 
     const columns = [
         {
-            title: 'Nombre',
-            dataIndex: 'name',
-            key: 'name',
-            onFilter: (value, record) => record.name.indexOf(value) === 0,
-            sorter: (a, b) =>  a.name.localeCompare(b.name),
-            sortDirections: ['descend'],
-        },
-        {
             title: 'Fecha',
             dataIndex: 'day',
             key: 'day',
-            valueType: 'date',
-            sorter: (a, b) =>  a.day.localeCompare(b.day),
-            
         },
         {
             title: 'Hora',
             dataIndex: 'schedule',
             key: 'schedule',
+            sortDirections: ['descend', 'ascend']
         },
         {
             title: 'Asistencia',
-            dataIndex: 'key',
-            key: 'key',
-            render: (key) => (
-                <button  onClick={()=> ondeleted(key)  }>
+            dataIndex: 'confirm',
+            key: 'confirm',
+            render: (elimina) => (
+                <button  onClick={()=> console.log(elimina)  }>
                   {"eliminar"}
                 </button>
                ),
         },
     ];
-   
-    
 
 
     return (
         <div>
 
-            <HeaderForums uid = {uid}/>
-
+            <HeaderAdmin uid = {uid}/>
+            <Breadcrumb/>
             <div className="fondo-foros">
                 <div align="center">
                     <p className="tam-titu"><strong>Horarios</strong></p>
@@ -121,7 +96,7 @@ const MyForums = () => {
                         <Card className="colorBaseB internal-box-size " bordered={true} align="center">
 
 
-                            <Table  dataSource={  dataForums.filter((forums, index)=> normalizeString(forums.name).includes(normalizeString(search))  ) }
+                            <Table dataSource={  dataForums.filter((forums, index)=> normalizeString(forums.day||forums.day).includes(normalizeString(search))  ) }
                                    columns={ columns } loading={isLoading} />   
 
                         </Card>
@@ -134,4 +109,4 @@ const MyForums = () => {
 }
 
 
-export default MyForums;
+export default SelectDate;

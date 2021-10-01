@@ -12,9 +12,9 @@ const Foot = ( ) => {
                 <Descriptions layout="vertical">
                     <Descriptions.Item label="Contáctanos" >022225724<PhoneOutlined style={{width:25, height:25}}/></Descriptions.Item>
                     <Descriptions.Item label="Redes Sociales">
-                        <a href="https://www.facebook.com/santaclarasm/" >Facebook Iglesia Santa Clara<FacebookOutlined style={{width:40, height:40}} /></a></Descriptions.Item>
+                        <a to="route" target="blank" href="https://www.facebook.com/santaclarasm/" >Facebook Iglesia Santa Clara<FacebookOutlined style={{width:40, height:40}} /></a></Descriptions.Item>
                     <Descriptions.Item label="Dirección ">
-                        <a href="https://www.google.com.ec/maps/place/Iglesia+de+Santa+Clara+de+San+Millan/@-0.2008627,-78.5022018,16z/data=!4m5!3m4!1s0x91d59a6a84509707:0x89be520ae2a35ade!8m2!3d-0.1996867!4d-78.4974002?hl=es-419"
+                        <a to="route" target="blank" href="https://www.google.com.ec/maps/place/Iglesia+de+Santa+Clara+de+San+Millan/@-0.2008627,-78.5022018,16z/data=!4m5!3m4!1s0x91d59a6a84509707:0x89be520ae2a35ade!8m2!3d-0.1996867!4d-78.4974002?hl=es-419"
                             >
                             <img
                                 style={{ width: '35%', height: '35%' }}
