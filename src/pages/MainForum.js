@@ -51,7 +51,7 @@ const MainForum = () => {
                                 key: i+'/'+key,
                                 ...forums[key]
                             });
-                            //console.log(forums); 
+                            //console.log(key); 
                     });
                     //const names = [forum.name]
                     //console.log("holaaaa",names.filter(name => name.includes(uid.name)));
@@ -109,6 +109,11 @@ const MainForum = () => {
             key: 'schedule',
         },
         {
+            title: 'Asiento',
+            dataIndex: 'key',
+            key: 'key',
+        },
+        {
             title: 'Asistencia',
             dataIndex: 'key',
             key: 'key',
@@ -124,8 +129,12 @@ const MainForum = () => {
 
     return (
         <div>
+            <div>
             <HeaderAdmin uid = {uid}/>
+            </div>
+            <div>
             <Breadcrumb/>
+            </div>
             <div className="fondo-foros">
                 <div align="center">
                     <p className="tam-titu"><strong>Horarios</strong></p>

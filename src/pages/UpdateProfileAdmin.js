@@ -87,21 +87,21 @@ const UpdateProfileAdmin = () => {
                                             name="name"
                                             rules={[{required: true, message: 'Porfavor ingrese el nombre!'}]}
                                         >
-                                            <Input/>
+                                            <Input type="text" pattern="[a-zA-ZñÑáéíóúÁÉÍÓÚüÜ ,.'-]{3,64}" title="Escriba de nuevo el nombre" />
                                         </Form.Item>
                                         <Form.Item
                                             label="Dirección"
                                             name="address"
                                             rules={[{required: true, message: 'Porfavor ingrese su dirección!'}]}
                                         >
-                                            <Input/>
+                                            <Input type="text" pattern="[a-zA-ZñÑáéíóúÁÉÍÓÚüÜ-0-9 ,.'-]{3,64}"  title="Escriba de nuevo la dirección"/>
                                         </Form.Item>
                                         <Form.Item
                                             label="Teléfono"
                                             name="phone"
                                             rules={[{required: true, message: 'Porfavor ingrese su teléfono!'}]}
                                         >
-                                            <Input/>
+                                            <Input type="tel" pattern="[0-9]{7,10}" maxlength="10" title="Escriba de nuevo su teléfono" />
                                         </Form.Item>
                                         <Form.Item
                                             label="Correo Electrónico"

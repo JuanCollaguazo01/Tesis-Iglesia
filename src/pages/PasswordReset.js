@@ -5,7 +5,7 @@ import '../styles/bill.css';
 import Foot from "../components/Foot";
 import {Link, useHistory} from "react-router-dom";
 import FIREBASE from "../firebase";
-
+import HeaderRegister from "../components/HeaderRegister";
 
 
 const PasswordReset = () => {
@@ -21,6 +21,7 @@ const PasswordReset = () => {
     }
     return (
         <div>
+            <HeaderRegister/>
             <div className="site-card-border-less-wrapper fondo-login" align="center">
                 <Card className="BaseA cuadro-grande"  bordered={false}>
                     <Card className="BaseB cuadro-interno "  bordered={false}>

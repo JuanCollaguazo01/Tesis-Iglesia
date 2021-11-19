@@ -25,13 +25,15 @@ const FormRegisterSeatData = (props) =>{
                         <Row gutter={16} align="center" >
                             <Col xs={24} sm={24} md={16} lg={16}  span={8}>
                                 <Form.Item  name="ra-identification-card" label="Cédula / Pasaporte">
-                                    <Input  id="ra-identification-card" defaultValue={ props.dataUser.identificationCard }  placeholder="Ingrese su Cédula o Pasaporte" required/>
+                                    <Input defaultValue={ props.dataUser.identificationCard } type="number" title="Escriba de nuevo la cédula/pasaporte"  id="ra-identification-card" placeholder="Ingrese su Cédula o Pasaporte" required/>
+                                
                                 </Form.Item>
                                 <Form.Item name="ra-name-user" label="Nombre">
-                                    <Input defaultValue={ props.dataUser.nameUser } id="ra-name-user" placeholder="Ingrese su nombre" required />
+                                    <Input defaultValue={ props.dataUser.nameUser } type="text" pattern="[a-zA-ZñÑáéíóúÁÉÍÓÚüÜ]{2,} [a-zA-ZñÑáéíóúÁÉÍÓÚüÜ]{2,}" title="Escriba de nuevo el nombre y apellido" id="ra-name-user" placeholder="Ingrese un nombre y un apellido" required />
+                                
                                 </Form.Item>
                                 <Form.Item name="ra-phone-user" label="Teléfono">
-                                    <Input  defaultValue={ props.dataUser.phoneUser}  id="ra-phone-user" placeholder="Ingrese su teléfono" required/>
+                                    <Input defaultValue={ props.dataUser.phoneUser} type="tel" pattern="[0-9]{7,10}" maxlength="10" title="Escriba de nuevo su teléfono" id="ra-phone-user" placeholder="Ingrese su teléfono" required/>
                                 </Form.Item>
                             </Col>
                         </Row>

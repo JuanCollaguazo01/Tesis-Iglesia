@@ -15,7 +15,7 @@ import ProfileAdmin from "../pages/ProfileAdmin";
 import UpdateProfileAdmin from "../pages/UpdateProfileAdmin";
 import RegisterSeatAdmin from "../pages/RegisterSeatAdmin";
 import UsuariosAdmin from "../pages/UsuariosAdmin";
-import SelectDate from "../pages/SelectDate";
+//import SelectDate from "../pages/SelectDate";
 
 
 const Navigation = () => {
@@ -67,9 +67,13 @@ const Navigation = () => {
             <Route path="/usuariosadmin/:uid">
                 <UsuariosAdmin/>
             </Route>
+            { 
+            /*
             <Route path="/selectdate/:uid">
                 <SelectDate/>
             </Route>
+            */
+            }
         </Switch>
     )
 }

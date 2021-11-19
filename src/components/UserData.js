@@ -58,14 +58,14 @@ const UserData = (props) => {
                         name="userPassword"
                         rules={[{required: true, message: 'Porfavor ingrese su contraseña!'}]}
                     >
-                        <Input.Password id="password"/>
+                        <Input.Password id="password" placeholder="Ingrese su Contraseña" pattern=".{6,}" title="Minimo 6 caracteres"/>
                     </Form.Item>
                     <Form.Item
                         label="Nombre y Apellido"
                         name="userName"
                         rules={[{required: true, message: 'Porfavor ingese su nombre !'}]}
                     >
-                                <Input  id="userName" placeholder="Ingrese su nombre" />
+                                <Input  id="userName" placeholder="Ingrese su nombre" type="text" pattern="[a-zA-ZñÑáéíóúÁÉÍÓÚüÜ ,.'-]{3,64}" title="Escriba de nuevo el nombre" />
 
                     </Form.Item>
                     <Form.Item
@@ -73,7 +73,7 @@ const UserData = (props) => {
                         name="userAddress"
                         rules={[{required: true, message: 'Porfavor llene el campo'}]}
                     >
-                                <Input  id="userAddress" placeholder="Ingrese su dirección" />
+                                <Input  id="userAddress" placeholder="Ingrese su dirección" type="text" pattern="[a-zA-ZñÑáéíóúÁÉÍÓÚüÜ-0-9 ,.'-]{3,64}"  title="Escriba de nuevo la dirección" />
 
 
                     </Form.Item>
@@ -82,7 +82,7 @@ const UserData = (props) => {
                         name="userPhone"
                         rules={[{required: true, message: 'Porfavor ingrese su teléfono'}]}
                     >
-                        <Input  id="userPhone" placeholder="Ingrese su teléfono" />
+                        <Input  id="userPhone" placeholder="Ingrese su teléfono" type="tel" pattern="[0-9]{7,10}" maxlength="10" title="Escriba de nuevo su teléfono"/>
 
                     </Form.Item>
                     

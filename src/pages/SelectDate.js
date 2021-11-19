@@ -21,27 +21,21 @@ const SelectDate = () => {
     useEffect( () => {
         const getDataComments  = async () => {
             FIREBASE.db.ref('masses').on('value', (snapshot) => {
-                //console.log('snapshot', snapshot.val());
                 const forumsData = [];
-                snapshot.forEach( (data) => {
-                    //  console.log('comment', data.val());
-                    const forums = data.val();
-                    
-                    Object.keys(forums).forEach((key)=>{
-                        //console.log(forums[key].day);
-                        if(forums[key].userid === uid){
-                            forumsData.push({                            
-                            day: forums[key].day,
-                            schedule: forums[key].schedule,
-                            confirm: forums[key],                        
-                        });
-                        console.log(forums[key].day);
-                        
-                        };
+                const datos = snapshot.val();
+                Object.keys(datos).forEach(( i , a ) => {
+                    //console.log('i', i);
+                    const forums = datos[i];
+                    //console.log("forums", forums);
+                    Object.keys(forums).forEach((key) => {
+                        //console.log("key", forums[key]);
+                            forumsData.push({
+                                id: a+1,
+                                key: i+'/'+key,
+                                ...forums[key]
+                            });
+                            //console.log(forumsData); 
                     });
-
-                    
-
                     //const names = [forum.name]
                     //console.log("holaaaa",names.filter(name => name.includes(uid.name)));
                 });
@@ -53,10 +47,33 @@ const SelectDate = () => {
         getDataComments();
     }, []);
 
+    const ondeleted = (key) => {
+        if (window.confirm("Estas seguro que deseas eliminar")) {
+            //console.log('commentsss', key);
+            FIREBASE.db.ref(`masses/${key}`).remove((err) => {
+                if (err) {
+                    window.confirm(err);
+                } else {
+                    window.confirm("Horario eliminado");
+                }
+            })
+        }
+    }
     const { Search } = Input;
 
 
     const columns = [
+        {
+            title: 'ID',
+            dataIndex: 'id',
+            key: 'id',
+            sorter: (a, b) => a.id - b.id,
+        },
+        {
+            title: 'Nombre',
+            dataIndex: 'name',
+            key: 'name',
+        },
         {
             title: 'Fecha',
             dataIndex: 'day',
@@ -66,14 +83,13 @@ const SelectDate = () => {
             title: 'Hora',
             dataIndex: 'schedule',
             key: 'schedule',
-            sortDirections: ['descend', 'ascend']
         },
         {
             title: 'Asistencia',
             dataIndex: 'confirm',
             key: 'confirm',
             render: (elimina) => (
-                <button  onClick={()=> console.log(elimina)  }>
+                <button  onClick={()=> ondeleted(elimina)  }>
                   {"eliminar"}
                 </button>
                ),

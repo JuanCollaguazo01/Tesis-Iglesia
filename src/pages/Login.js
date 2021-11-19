@@ -3,6 +3,7 @@ import {Form, Input, Button, Card, message} from "antd";
 import '../styles/login.css';
 import '../styles/bill.css';
 import Foot from "../components/Foot";
+import HeaderRegister from "../components/HeaderRegister";
 import {Link} from "react-router-dom";
 import FIREBASE from "../firebase";
 import { useHistory } from 'react-router-dom';
@@ -39,6 +40,7 @@ const Login = () => {
 
     return (
         <div>
+            <HeaderRegister/>
             <div className=" site-card-border-less-wrapper fondo-login" align="center">
                 <Card className="BaseA cuadro-grande"  bordered={false}>
                     <Card className="BaseB cuadro-interno "  bordered={false}>
@@ -57,7 +59,7 @@ const Login = () => {
                             <Form.Item
                                 label="Email"
                                 name="userMail"
-                                rules={[{required: true, message: 'Please input your username!'}]}
+                                rules={[{required: true, message: 'Ingrese su correo!'}]}
                             >
                                 <Input/>
                             </Form.Item>
@@ -65,7 +67,7 @@ const Login = () => {
                             <Form.Item
                                 label="Contraseña"
                                 name="userPassword"
-                                rules={[{required: true, message: 'Please input your password!'}]}
+                                rules={[{required: true, message: 'Ingrese su contraseña!'}]}
                             >
                                 <Input.Password/>
                             </Form.Item>

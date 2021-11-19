@@ -108,9 +108,9 @@ const MyForums = () => {
 
     return (
         <div>
-
+            <div>
             <HeaderForums uid = {uid}/>
-
+            </div>
             <div className="fondo-foros">
                 <div align="center">
                     <p className="tam-titu"><strong>Horarios</strong></p>

@@ -12,13 +12,13 @@ const PDF = (props) => {
 
     const handlegeneratePDF = () => {
         //cambiar imagen
-        const imgData = 'https://upload.wikimedia.org/wikipedia/commons/c/c0/Horned_logo.jpeg'
+        const imgData = 'https://st.depositphotos.com/1072020/4238/v/600/depositphotos_42387707-stock-illustration-vector-symbol-or-icon-of.jpg'
 
         var doc = new jsPDF('p', 'pt');
 
         doc.addImage(imgData, 'JPEG', 240, 10, 120, 100)
         doc.setFontSize(30)
-        doc.text('Iglesia San Ignacio de Loyola ', 100, 150, )
+        doc.text('Iglesia Santa Clara de San Millán ', 100, 150, )
 
         doc.setFontSize(22)
         doc.text('Se han registrado los siguientes datos: ', 100, 190, )

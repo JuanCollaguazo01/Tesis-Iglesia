@@ -14,6 +14,7 @@ import Divider from "antd/es/divider";
 import {Link} from "react-router-dom";
 import SendEmail from "../components/SendEmail";
 import Foot from "../components/Foot";
+import Header from "../components/Header";
 
 
 const Inicio = () => {
@@ -21,7 +22,7 @@ const Inicio = () => {
 
     return (
         <div>
-
+            <Header />
 
             {/*//Bienvenidos*/}
             <div >
